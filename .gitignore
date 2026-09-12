@@ -1,0 +1,77 @@
+## Visual Studio / .NET Build Artifacts
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+build/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio Temporary Files & User Settings
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.userprefs
+*.rsuser
+*.aps
+*.cache
+*.mdf
+*.ldf
+*.pidb
+*.publishsettings
+
+## IDEs & Editors (VS Code, JetBrains Rider)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.idea/
+*.DotSettings.user
+_ReSharper.*/
+
+## Local Databases & Caches
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.localdb
+*.sdf
+session.dat
+
+## Package & Publish Artifacts
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+![Pp]ackages/build/
+AppPackages/
+BundleArtifacts/
+
+## Test & Code Coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Operating System Files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.Trashes
