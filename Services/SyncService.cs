@@ -364,7 +364,8 @@ namespace Cajolote.Services
                 try
                 {
                     string idTokenForDelete = await client.User.GetIdTokenAsync(forceRefresh: true);
-                    string deleteUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents/stores/{uid}/devices/{lastSynced}?key={apiKey}";
+                    string escapedLastSynced = Uri.EscapeDataString(lastSynced);
+                    string deleteUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents/stores/{uid}/devices/{escapedLastSynced}?key={apiKey}";
                     
                     using var deleteRequest = new HttpRequestMessage(HttpMethod.Delete, deleteUrl);
                     deleteRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", idTokenForDelete);
@@ -397,7 +398,8 @@ namespace Cajolote.Services
                 try
                 {
                     string idToken = await client.User.GetIdTokenAsync(forceRefresh: true);
-                    string docUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents/stores/{uid}/devices/{currentDeviceName}?key={apiKey}";
+                    string escapedDeviceName = Uri.EscapeDataString(currentDeviceName);
+                    string docUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents/stores/{uid}/devices/{escapedDeviceName}?key={apiKey}";
 
                     var payload = new
                     {
@@ -485,7 +487,8 @@ namespace Cajolote.Services
             try
             {
                 string idToken = await client.User.GetIdTokenAsync(forceRefresh: true);
-                string deleteUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents/stores/{uid}/devices/{lastSynced}?key={apiKey}";
+                string escapedLastSynced = Uri.EscapeDataString(lastSynced);
+                string deleteUrl = $"https://firestore.googleapis.com/v1/projects/{projectId}/databases/(default)/documents/stores/{uid}/devices/{escapedLastSynced}?key={apiKey}";
 
                 using var deleteRequest = new HttpRequestMessage(HttpMethod.Delete, deleteUrl);
                 deleteRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", idToken);

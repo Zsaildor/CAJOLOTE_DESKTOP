@@ -15,7 +15,7 @@ namespace Cajolote.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.14");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
             modelBuilder.Entity("Cajolote.Models.Category", b =>
                 {
@@ -289,7 +289,7 @@ namespace Cajolote.Migrations
             modelBuilder.Entity("Cajolote.Models.HistoricalSale", b =>
                 {
                     b.HasOne("Cajolote.Models.Note", "Note")
-                        .WithMany()
+                        .WithMany("HistoricalSales")
                         .HasForeignKey("NoteId");
 
                     b.Navigation("Note");
@@ -376,6 +376,8 @@ namespace Cajolote.Migrations
 
             modelBuilder.Entity("Cajolote.Models.Note", b =>
                 {
+                    b.Navigation("HistoricalSales");
+
                     b.Navigation("ManualDebts");
 
                     b.Navigation("Sales");

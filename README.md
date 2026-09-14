@@ -1,25 +1,25 @@
 # 🥑 Cajolote Desktop
 
-**Cajolote Desktop** es una aplicación de Punto de Venta (POS) moderna, rápida e intuitiva desarrollada para Windows utilizando **.NET 8** y **WPF**. Está diseñada para optimizar la gestión de ventas, inventario, cuentas fiadas/créditos de clientes, integración con lectores de código de barras e impresoras térmicas, así como sincronización en la nube con Firebase.
+**Cajolote Desktop** es una aplicación de Punto de Venta (POS) moderna, rápida e intuitiva desarrollada para Windows utilizando **.NET 10** y **WPF**. Está diseñada para optimizar la gestión de ventas, inventario, cuentas fiadas/créditos de clientes, integración con lectores de código de barras e impresoras térmicas, así como sincronización en la nube con Firebase.
 
 ---
 
 ## 🚀 Características Principales
 
-* **Punto de Venta (POS) Agil:** Búsqueda rápida por lector de código de barras o teclado, productos a granel/peso y cobro rápido en efectivo o cargado a crédito.
-* **Control de Inventario:** Gestión completa de catálogo de productos y categorías con indicadores visuales y accesos rápidos.
+* **Punto de Venta (POS) Agil:** Búsqueda rápida por lector de código de barras o teclado, productos a granel/peso y cobro rápido.
+* **Control de Inventario:** Gestión completa de catálogo de productos y categorías con indicadores visuales y accesos rápidos para productos sin códigos ej. un bolillo.
 * **Gestión de Créditos y Cuentas Fiadas (Notas):** Registro de deudas por cliente, abonos parciales/totales e impresión de recibos de pago.
-* **Integración con Hardware:** Soporte para impresoras térmicas ESC/POS (puertos serie COM) y escáner de códigos de barras global.
+* **Integración con Hardware:** Soporte para impresoras térmicas mediante Windows y escáner de códigos de barras global.
 * **Dashboard e Informes Analíticos:** Gráficas de rendimiento diario, productos más vendidos, ingresos por categoría y reportes exportables a PDF (QuestPDF).
-* **Sincronización Cloud e Híbrida:** Funcionamiento 100% offline con SQLite local y sincronización automática en segundo plano con Firebase Firestore / Auth.
+* **Sincronización Cloud e Híbrida:** Funcionamiento 100% offline con SQLite local y sincronización opcional (función con costo) en segundo plano con Firebase Firestore / Auth.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **Framework:** .NET 8.0 (Windows Presentation Foundation - WPF)
+* **Framework:** .NET 10.0 (Windows Presentation Foundation - WPF)
 * **Arquitectura:** MVVM (`CommunityToolkit.Mvvm`)
-* **Base de Datos Local:** SQLite con Entity Framework Core 8.0.14
+* **Base de Datos Local:** SQLite con Entity Framework Core 10.0.0
 * **Diseño UI:** Material Design in XAML & LiveChartsCore (SkiaSharp)
 * **Generación de Documentos:** QuestPDF & LottieSharp
 * **Autenticación & Nube:** Firebase Auth & Firestore REST
@@ -63,7 +63,7 @@ Para obtener información detallada sobre el diseño y funcionamiento interno de
 
 ### Requisitos Previos
 * **OS:** Windows 10 / 11
-* **SDK:** [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) o posterior
+* **SDK:** [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) o posterior
 * **IDE Recomendado:** Visual Studio 2022 / VS Code / JetBrains Rider
 
 ### Pasos para Compilar y Ejecutar

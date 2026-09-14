@@ -129,23 +129,23 @@ public class CajoloteDbContext : DbContext
 
     private bool RecalculateNotes(HashSet<int> noteIds)
     {
+        if (noteIds == null || noteIds.Count == 0) return false;
+
         bool changed = false;
-        foreach (var id in noteIds)
+        var affectedNotes = Notes
+            .Include(n => n.Sales)
+            .Include(n => n.ManualDebts)
+            .Where(n => noteIds.Contains(n.Id))
+            .ToList();
+
+        foreach (var note in affectedNotes)
         {
-            var note = Notes
-                .Include(n => n.Sales)
-                .Include(n => n.ManualDebts)
-                .FirstOrDefault(n => n.Id == id);
-            
-            if (note != null)
+            decimal correctAmount = note.Sales.Sum(s => s.Total) + note.ManualDebts.Sum(md => md.Amount);
+            if (note.Amount != correctAmount)
             {
-                decimal correctAmount = note.Sales.Sum(s => s.Total) + note.ManualDebts.Sum(md => md.Amount);
-                if (note.Amount != correctAmount)
-                {
-                    note.Amount = correctAmount;
-                    Notes.Update(note);
-                    changed = true;
-                }
+                note.Amount = correctAmount;
+                Notes.Update(note);
+                changed = true;
             }
         }
         return changed;

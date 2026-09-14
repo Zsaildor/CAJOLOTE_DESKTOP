@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cajolote.Migrations
 {
     [DbContext(typeof(CajoloteDbContext))]
-    [Migration("20260528160108_AddIsDirtyToStoreProfile")]
-    partial class AddIsDirtyToStoreProfile
+    [Migration("20260914024505_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.14");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
             modelBuilder.Entity("Cajolote.Models.Category", b =>
                 {
@@ -42,6 +42,12 @@ namespace Cajolote.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("EditedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsEdited")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsPaid")
                         .HasColumnType("INTEGER");
@@ -136,6 +142,9 @@ namespace Cajolote.Migrations
                     b.Property<decimal>("PaidAmount")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("PaidAt")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Notes");
@@ -187,6 +196,12 @@ namespace Cajolote.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("EditedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsEdited")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsPaid")
                         .HasColumnType("INTEGER");
@@ -244,6 +259,9 @@ namespace Cajolote.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("IsDirty")
                         .HasColumnType("INTEGER");
 
@@ -274,7 +292,7 @@ namespace Cajolote.Migrations
             modelBuilder.Entity("Cajolote.Models.HistoricalSale", b =>
                 {
                     b.HasOne("Cajolote.Models.Note", "Note")
-                        .WithMany()
+                        .WithMany("HistoricalSales")
                         .HasForeignKey("NoteId");
 
                     b.Navigation("Note");
@@ -361,6 +379,8 @@ namespace Cajolote.Migrations
 
             modelBuilder.Entity("Cajolote.Models.Note", b =>
                 {
+                    b.Navigation("HistoricalSales");
+
                     b.Navigation("ManualDebts");
 
                     b.Navigation("Sales");

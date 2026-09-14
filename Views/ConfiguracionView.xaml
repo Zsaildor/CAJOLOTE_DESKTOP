@@ -340,7 +340,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Versión" FontSize="13" Foreground="#6B5A68"/>
-                        <TextBlock Grid.Column="1" Text="Beta 0.9.5" FontSize="13" FontWeight="Bold" Foreground="#4A3B47"/>
+                        <TextBlock Grid.Column="1" Text="Beta 1.0.0" FontSize="13" FontWeight="Bold" Foreground="#4A3B47"/>
                     </Grid>
                     <Grid Margin="0,0,0,6">
                         <Grid.ColumnDefinitions>
@@ -348,7 +348,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Framework" FontSize="13" Foreground="#6B5A68"/>
-                        <TextBlock Grid.Column="1" Text="NET 8.0 + WPF" FontSize="13" FontWeight="Bold" Foreground="#4A3B47"/>
+                        <TextBlock Grid.Column="1" Text="NET 10.0 + WPF" FontSize="13" FontWeight="Bold" Foreground="#4A3B47"/>
                     </Grid>
                     <Grid Margin="0,0,0,6">
                         <Grid.ColumnDefinitions>

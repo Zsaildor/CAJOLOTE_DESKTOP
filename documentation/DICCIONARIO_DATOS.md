@@ -8,7 +8,7 @@ Este documento contiene la especificación y descripción técnica de la estruct
 
 * **Motor de Base de Datos:** SQLite
 * **Ubicación del Archivo:** `%LocalAppData%\cajolote.db` (ej. `C:\Users\<Usuario>\AppData\Local\cajolote.db`)
-* **ORM:** Entity Framework Core 8.0.14
+* **ORM:** Entity Framework Core 10.0.0
 * **Espacio de Nombres del Modelo:** `Cajolote.Models`
 * **DbContext:** [CajoloteDbContext.cs](../Data/CajoloteDbContext.cs)
 

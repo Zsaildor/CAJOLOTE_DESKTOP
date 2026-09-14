@@ -7,7 +7,7 @@ public class Product
     public string Name { get; set; } = string.Empty;
     public decimal Price { get; set; }
     public int CategoryId { get; set; }
-    public Category Category { get; set; } = null!;
+    public Category? Category { get; set; }
     public bool IsQuickProduct { get; set; } = false;
     public bool IsBulk { get; set; } = false;
     public string? IconKey { get; set; }

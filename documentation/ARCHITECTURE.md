@@ -6,7 +6,7 @@ Este documento detalla la arquitectura de software, patrones de diseño, estruct
 
 ## 🏗️ Patrón de Arquitectura General: MVVM
 
-La aplicación está construida sobre la plataforma **.NET 8.0** para Windows, utilizando **WPF** (Windows Presentation Foundation) y sigue el patrón **MVVM** (Model-View-ViewModel). El desacoplamiento y comunicación se facilita mediante la librería `CommunityToolkit.Mvvm`.
+La aplicación está construida sobre la plataforma **.NET 10.0** para Windows, utilizando **WPF** (Windows Presentation Foundation) y sigue el patrón **MVVM** (Model-View-ViewModel). El desacoplamiento y comunicación se facilita mediante la librería `CommunityToolkit.Mvvm`.
 
 ### Diagrama de Relaciones de Arquitectura
 

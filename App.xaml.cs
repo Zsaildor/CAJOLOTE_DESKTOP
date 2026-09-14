@@ -101,12 +101,12 @@ namespace Cajolote
                     command.CommandText = "CREATE TABLE IF NOT EXISTS \"__EFMigrationsHistory\" (\"MigrationId\" TEXT NOT NULL PRIMARY KEY, \"ProductVersion\" TEXT NOT NULL);";
                     command.ExecuteNonQuery();
                     
-                    command.CommandText = "SELECT COUNT(*) FROM \"__EFMigrationsHistory\" WHERE \"MigrationId\" = '20260525151808_InitialCreate';";
+                    command.CommandText = "SELECT COUNT(*) FROM \"__EFMigrationsHistory\" WHERE \"MigrationId\" = '20260914024505_InitialCreate';";
                     var hasInitial = Convert.ToInt32(command.ExecuteScalar()) > 0;
                     
                     if (!hasInitial)
                     {
-                        command.CommandText = "INSERT INTO \"__EFMigrationsHistory\" (\"MigrationId\", \"ProductVersion\") VALUES ('20260525151808_InitialCreate', '8.0.0');";
+                        command.CommandText = "INSERT INTO \"__EFMigrationsHistory\" (\"MigrationId\", \"ProductVersion\") VALUES ('20260914024505_InitialCreate', '10.0.0');";
                         command.ExecuteNonQuery();
                     }
                 }

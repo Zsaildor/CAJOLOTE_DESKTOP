@@ -32,7 +32,10 @@ namespace Cajolote.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CustomerName = table.Column<string>(type: "TEXT", nullable: false),
                     Amount = table.Column<decimal>(type: "TEXT", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    PaidAmount = table.Column<decimal>(type: "TEXT", nullable: false),
+                    IsPaid = table.Column<bool>(type: "INTEGER", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    PaidAt = table.Column<DateTime>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,7 +52,10 @@ namespace Cajolote.Migrations
                     OwnerName = table.Column<string>(type: "TEXT", nullable: false),
                     Phone = table.Column<string>(type: "TEXT", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: false),
-                    Rfc = table.Column<string>(type: "TEXT", nullable: false)
+                    Rfc = table.Column<string>(type: "TEXT", nullable: false),
+                    ImagePath = table.Column<string>(type: "TEXT", nullable: true),
+                    LastUpdated = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    IsDirty = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,7 +96,9 @@ namespace Cajolote.Migrations
                     Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     IsSynced = table.Column<bool>(type: "INTEGER", nullable: false),
                     IsPaid = table.Column<bool>(type: "INTEGER", nullable: false),
-                    NoteId = table.Column<int>(type: "INTEGER", nullable: true)
+                    NoteId = table.Column<int>(type: "INTEGER", nullable: true),
+                    IsEdited = table.Column<bool>(type: "INTEGER", nullable: false),
+                    EditedAt = table.Column<DateTime>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -134,7 +142,9 @@ namespace Cajolote.Migrations
                     Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     IsSynced = table.Column<bool>(type: "INTEGER", nullable: false),
                     IsPaid = table.Column<bool>(type: "INTEGER", nullable: false),
-                    NoteId = table.Column<int>(type: "INTEGER", nullable: true)
+                    NoteId = table.Column<int>(type: "INTEGER", nullable: true),
+                    IsEdited = table.Column<bool>(type: "INTEGER", nullable: false),
+                    EditedAt = table.Column<DateTime>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
