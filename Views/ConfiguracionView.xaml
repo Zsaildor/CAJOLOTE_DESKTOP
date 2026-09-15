@@ -127,40 +127,75 @@
                         </StackPanel>
                     </Grid>
 
-                    <!--<Separator Background="#F0E6EC" Height="1" Margin="0,5,0,15"/>
+                    <Separator Background="#F0E6EC" Height="1" Margin="0,5,0,15"/>
 
+                    <!-- Respaldo de Base de Datos en Firebase Storage (Automático) -->
                     <Grid Style="{StaticResource ToggleRowStyle}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Text="Estado de conexión" FontSize="14" FontWeight="Bold" Foreground="#4A3B47"/>
-                            <TextBlock Text="Verificar conexión con servidores Firebase" FontSize="12" Foreground="#6B5A68"/>
+                            <TextBlock Text="Copia de Seguridad Automática (Firebase Storage)" FontSize="14" FontWeight="Bold" Foreground="#4A3B47"/>
+                            <TextBlock Text="Respaldo mensual en la nube de la base de datos local SQLite" FontSize="12" Foreground="#6B5A68" Margin="0,0,0,3"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Último respaldo: " FontSize="11" Foreground="#9A8A97"/>
+                                <TextBlock Text="{Binding LastBackupText}" FontSize="11" Foreground="#9A8A97" FontWeight="SemiBold"/>
+                            </StackPanel>
                         </StackPanel>
-                        <Border Grid.Column="1" Background="#D5F5E3" CornerRadius="8" Padding="10,4">
-                            <TextBlock Text="Conectado" FontSize="12" FontWeight="Bold" Foreground="#27AE60"/>
+                        <Border Grid.Column="1" Background="#E8F5E9" CornerRadius="12" Padding="12,6" VerticalAlignment="Center">
+                            <TextBlock Text="Automático (Mensual)" FontSize="11" FontWeight="Bold" Foreground="#2E7D32"/>
                         </Border>
                     </Grid>
+                </StackPanel>
+            </Border>
 
-                    <Border Background="#F8F0F5" CornerRadius="8" Padding="15" Margin="0,0,0,5">
-                        <Grid>
+            <!-- Políticas de Privacidad y Protección de Datos -->
+            <Border Style="{StaticResource CardStyle}">
+                <Expander Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Stretch">
+                    <Expander.Header>
+                        <Grid HorizontalAlignment="Stretch" Margin="0,0,10,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel>
-                                <TextBlock Text="Última sincronización" FontSize="13" Foreground="#6B5A68"/>
-                                <TextBlock Text="" FontSize="14" FontWeight="Bold" Foreground="#4A3B47"/>
+                                <TextBlock Text="🔒  Políticas de Privacidad y Protección de Datos" Style="{StaticResource SectionTitleStyle}" Margin="0,0,0,2"/>
+                                <TextBlock Text="Información sobre la confidencialidad, uso exclusivo y protección de sus datos" FontSize="12" Foreground="#6B5A68"/>
                             </StackPanel>
-                            <Border Grid.Column="1" CornerRadius="8">
-                                <Button Content="Sincronizar ahora"
-                                        Background="#A78BFA" Foreground="White" FontSize="13"
-                                        Padding="12,6" BorderThickness="0" Cursor="Hand"/>
+                            <Border Grid.Column="1" Background="#E8F5E9" CornerRadius="12" Padding="10,4" VerticalAlignment="Center">
+                                <TextBlock Text="Confidencial y Seguro" FontSize="11" FontWeight="Bold" Foreground="#2E7D32"/>
                             </Border>
                         </Grid>
-                    </Border>-->
-                </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Margin="0,15,0,5">
+                        <Separator Background="#F0E6EC" Height="1" Margin="0,0,0,15"/>
+
+                        <Border Background="#F9F8FA" CornerRadius="8" Padding="15" Margin="0,0,0,12" BorderBrush="#E8E4EC" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="Propósito Exclusivo de Diagnóstico y Mejora" FontSize="13" FontWeight="Bold" Foreground="#4A3B47" Margin="0,0,0,6"/>
+                                <TextBlock Text="La información de la base de datos respaldada (catálogo de productos, registros de ventas y métricas operativas) se utiliza única y exclusivamente con fines de análisis estadístico interno, diagnóstico técnico y mejora continua del rendimiento y calidad de Cajolote Desktop."
+                                           FontSize="12" Foreground="#5A4A57" TextWrapping="Wrap" LineHeight="18"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="#E8F5E9" CornerRadius="8" Padding="15" Margin="0,0,0,12" BorderBrush="#C8E6C9" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="No se Comparte con Terceros" FontSize="13" FontWeight="Bold" Foreground="#2E7D32" Margin="0,0,0,6"/>
+                                <TextBlock Text="Sus datos nunca se comparten, comercializan, transfieren ni ceden a terceros bajo ninguna circunstancia, ni para fines comerciales ni publicitarios. La información pertenece exclusivamente a su negocio."
+                                           FontSize="12" Foreground="#386A3C" TextWrapping="Wrap" LineHeight="18"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="#EDE7F6" CornerRadius="8" Padding="15" BorderBrush="#D1C4E9" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="Almacenamiento Cifrado y Protegido" FontSize="13" FontWeight="Bold" Foreground="#5E35B1" Margin="0,0,0,6"/>
+                                <TextBlock Text="Las copias de seguridad se comprimen y transmiten mediante canales seguros (HTTPS/TLS) y se resguardan de forma aislada en Firebase Storage, asociadas únicamente a su cuenta de usuario autenticada con estrictas reglas de seguridad por usuario."
+                                           FontSize="12" Foreground="#4527A0" TextWrapping="Wrap" LineHeight="18"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Expander>
             </Border>
 
             <!-- Suscripción y Web -->
@@ -340,7 +375,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Versión" FontSize="13" Foreground="#6B5A68"/>
-                        <TextBlock Grid.Column="1" Text="Beta 1.0.0" FontSize="13" FontWeight="Bold" Foreground="#4A3B47"/>
+                        <TextBlock Grid.Column="1" Text="1.0.2" FontSize="13" FontWeight="Bold" Foreground="#4A3B47"/>
                     </Grid>
                     <Grid Margin="0,0,0,6">
                         <Grid.ColumnDefinitions>

@@ -201,7 +201,7 @@ public class NoteReceiptGenerator
         {
             column.Item().Text("¡Cuenta liquidada correctamente!").FontSize(7).Bold();
             column.Item().PaddingTop(2).Text("Este documento no es comprobante fiscal").FontSize(7).SemiBold();
-            column.Item().PaddingTop(5).Text("Cajolote vBeta 0.9.5 | © Zsaildor").FontSize(7).Light();
+            column.Item().PaddingTop(5).Text("Cajolote v 1.0.2 | © Zsaildor").FontSize(7).Light();
         });
     }
 

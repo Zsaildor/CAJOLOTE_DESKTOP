@@ -187,5 +187,17 @@ namespace Cajolote.ViewModels
                 ResendStatusMessage = "El correo sigue sin estar verificado.";
             }
         }
+
+        public string LastBackupText
+        {
+            get
+            {
+                if (_settingsService.Settings.LastDatabaseBackupDate.HasValue)
+                {
+                    return _settingsService.Settings.LastDatabaseBackupDate.Value.ToLocalTime().ToString("dd/MM/yyyy hh:mm tt");
+                }
+                return "Ninguno registrado";
+            }
+        }
     }
 }

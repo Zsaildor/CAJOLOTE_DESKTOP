@@ -127,7 +127,7 @@
                     <StackPanel Grid.Column="1" Margin="40,0,0,0" VerticalAlignment="Center">
                         <TextBlock Text="{Binding StoreName, TargetNullValue='Nombre de Tienda'}" FontSize="22" FontWeight="Bold" Foreground="#4A3B47"/>
                         <TextBlock Text="{Binding Rfc, TargetNullValue='RFC'}" FontSize="14" Foreground="#6B5A68" Margin="0,4,0,0"/>
-                        <TextBlock FontSize="12" Foreground="#4361EE" Margin="0,4,0,0" Text="Cajolote Versión Beta 0.9.5"/>
+                        <TextBlock FontSize="12" Foreground="#4361EE" Margin="0,4,0,0" Text="Cajolote Versión 1.9.2"/>
                     </StackPanel>
                 </Grid>
             </Border>

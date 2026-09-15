@@ -178,6 +178,23 @@ namespace Cajolote
 
             BackupOverlay.Visibility = Visibility.Collapsed;
             NavigateTo(new DashboardView());
+
+            // 4. Verificación mensual de respaldo en segundo plano (evalúa primero >= 30 días, luego internet)
+            _ = System.Threading.Tasks.Task.Run(async () =>
+            {
+                try
+                {
+                    var backupService = App.Current.Services.GetService<Cajolote.Services.DatabaseBackupService>();
+                    if (backupService != null)
+                    {
+                        await backupService.CheckAndPerformMonthlyBackupAsync();
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[MainWindow] Error en verificación mensual de respaldo: {ex.Message}");
+                }
+            });
         }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

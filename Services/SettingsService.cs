@@ -12,6 +12,7 @@ namespace Cajolote.Services
         public string LastSyncedDeviceName { get; set; } = string.Empty;
         public bool DeviceSyncPending { get; set; } = false;
         public string RapidCardsLayout { get; set; } = "Sin divisiones";
+        public DateTime? LastDatabaseBackupDate { get; set; } = null;
     }
 
     public class SettingsService
@@ -56,6 +57,17 @@ namespace Cajolote.Services
                 System.Diagnostics.Debug.WriteLine($"Error al cargar configuración: {ex.Message}");
             }
             return new UserSettings();
+        }
+
+        public bool ShouldPerformMonthlyBackup()
+        {
+            if (!_settings.LastDatabaseBackupDate.HasValue) return true;
+
+            var last = _settings.LastDatabaseBackupDate.Value;
+            var now = DateTime.UtcNow;
+
+            // Evaluación simple y ultraligera en memoria: ¿han transcurrido 30 días o más?
+            return (now - last).TotalDays >= 30;
         }
 
         public void SaveSettings()

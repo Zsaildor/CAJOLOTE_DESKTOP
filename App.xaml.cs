@@ -19,6 +19,7 @@ namespace Cajolote
 
         public App()
         {
+            Cajolote.Services.EnvLoader.Load();
             Services = ConfigureServices();
         }
 
@@ -52,6 +53,7 @@ namespace Cajolote
             services.AddSingleton<Cajolote.Services.FirebaseAuthService>();
             services.AddSingleton<Cajolote.Services.NetworkService>();
             services.AddSingleton<Cajolote.Services.SyncService>();
+            services.AddSingleton<Cajolote.Services.DatabaseBackupService>();
 
             return services.BuildServiceProvider();
         }

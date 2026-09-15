@@ -130,7 +130,7 @@ public class TicketGenerator
         {
             column.Item().Text("¡Gracias por su compra!").FontSize(7).Bold();
             column.Item().PaddingTop(2).Text("Este documento no es comprobante fiscal").FontSize(7).SemiBold(); //.FontColor(Colors.Grey.Darken1);
-            column.Item().PaddingTop(5).Text("Cajolote vBeta 0.9.5 | © Zsaildor").FontSize(7).Light(); //.FontColor(Colors.Grey.Darken1);
+            column.Item().PaddingTop(5).Text("Cajolote 1.0.2 | © Zsaildor").FontSize(7).Light(); //.FontColor(Colors.Grey.Darken1);
         });
     }
 

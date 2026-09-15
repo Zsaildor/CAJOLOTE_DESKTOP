@@ -614,6 +614,8 @@ public partial class PosViewModel : ObservableObject
 
         _pendingSale = sale;
         IsPrintModalOpen = true;
+
+        TriggerMonthlyBackupCheckInBackground();
     }
 
     [RelayCommand]
@@ -775,6 +777,8 @@ public partial class PosViewModel : ObservableObject
         IsCreditModalOpen = false;
         _pendingSale = sale;
         IsPrintModalOpen = true;
+
+        TriggerMonthlyBackupCheckInBackground();
     }
 
     [RelayCommand]
@@ -1140,5 +1144,24 @@ public partial class PosViewModel : ObservableObject
         }
 
         OnPropertyChanged(nameof(ShowSearchClearProgress));
+    }
+
+    private void TriggerMonthlyBackupCheckInBackground()
+    {
+        _ = System.Threading.Tasks.Task.Run(async () =>
+        {
+            try
+            {
+                var backupService = App.Current.Services.GetService<Cajolote.Services.DatabaseBackupService>();
+                if (backupService != null)
+                {
+                    await backupService.CheckAndPerformMonthlyBackupAsync();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[PosViewModel] Error en verificación de respaldo mensual: {ex.Message}");
+            }
+        });
     }
 }

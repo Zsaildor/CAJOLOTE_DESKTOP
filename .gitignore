@@ -51,6 +51,15 @@ _ReSharper.*/
 *.sdf
 session.dat
 
+## Environment Variables, Secrets & Cloud Configs
+.env
+.env.*
+*.env
+secrets.json
+firebase-config.json
+appsettings*.json
+!appsettings.json
+
 ## Package & Publish Artifacts
 *.nupkg
 *.snupkg
